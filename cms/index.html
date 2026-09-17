@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Borderless Kitchen — CMS Admin</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- LOGIN VIEW -->
+  <section id="loginView" class="screen">
+    <div class="card login-card">
+      <h1>Borderless Kitchen</h1>
+      <p class="subtitle">CMS Admin Login</p>
+      <input type="email" id="loginEmail" placeholder="Email" />
+      <input type="password" id="loginPassword" placeholder="Password" />
+      <button id="loginBtn">Masuk</button>
+      <p id="loginError" class="error"></p>
+    </div>
+  </section>
+
+  <!-- DASHBOARD VIEW -->
+  <section id="dashboardView" class="screen hidden">
+    <aside class="sidebar">
+      <h2>Borderless<br>Kitchen</h2>
+      <nav>
+        <button class="nav-btn active" data-tab="orders">📦 Orders</button>
+        <button class="nav-btn" data-tab="menu">🍽 Menu Items</button>
+      </nav>
+      <button id="logoutBtn" class="logout-btn">Keluar</button>
+    </aside>
+
+    <main class="content">
+      <!-- ORDERS TAB -->
+      <div id="ordersTab" class="tab">
+        <div class="tab-header">
+          <h2>Daftar Pesanan</h2>
+          <span id="orderCount" class="pill">0 pesanan</span>
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Waktu</th>
+              <th>Nama</th>
+              <th>Telepon</th>
+              <th>Alamat</th>
+              <th>Items</th>
+              <th>Total</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="ordersTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- MENU TAB -->
+      <div id="menuTab" class="tab hidden">
+        <div class="tab-header">
+          <h2>Kelola Menu</h2>
+          <button id="addMenuBtn" class="primary-btn">+ Tambah Menu</button>
+        </div>
+
+        <div id="menuForm" class="card hidden">
+          <input type="hidden" id="menuId" />
+          <input type="text" id="menuName" placeholder="Nama menu" />
+          <input type="number" id="menuPrice" placeholder="Harga (Rp)" />
+          <input type="text" id="menuCategory" placeholder="Kategori (mis. Main Course)" />
+          <input type="text" id="menuImage" placeholder="URL gambar (opsional)" />
+          <textarea id="menuDescription" placeholder="Deskripsi singkat"></textarea>
+          <label class="checkbox-row">
+            <input type="checkbox" id="menuAvailable" checked />
+            Tersedia untuk dipesan
+          </label>
+          <div class="form-actions">
+            <button id="saveMenuBtn" class="primary-btn">Simpan</button>
+            <button id="cancelMenuBtn" class="secondary-btn">Batal</button>
+          </div>
+        </div>
+
+        <div id="menuGrid" class="menu-grid"></div>
+      </div>
+    </main>
+  </section>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
